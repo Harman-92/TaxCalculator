@@ -72,7 +72,7 @@ def calculate_tax(year: str, income: float) -> float:
 
 def main():
     """
-    Main function.
+    Main function dictating the flow of the program.
     """
     year = get_year_prompt()
     income = get_income_prompt()
