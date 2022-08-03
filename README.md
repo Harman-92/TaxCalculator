@@ -32,7 +32,7 @@ python tax_calculator.py
 ![](https://img001.prntscr.com/file/img001/5cWoap3lRrW7gl6oz5_93A.png)
 
 ## Tax Rates
-The Tax Rates are taken from the taxratesinfo website and are in the following format. <br/>
+The Tax Rates are taken from the [atotaxrates.info](https://atotaxrates.info/) website and are in the following format. <br/>
 ![](https://img001.prntscr.com/file/img001/gWXcGzEnRImY3HDvu2-CcA.png)
 <br/>
 <br/>
