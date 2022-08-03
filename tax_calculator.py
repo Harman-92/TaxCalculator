@@ -24,3 +24,21 @@ def get_year_prompt() -> str:
         exit()
 
     return year
+
+
+def get_income_prompt() -> float:
+    """
+    Prompts user for income to calculate tax for.
+
+        Returns:
+            float : income (e.g.23456.45)
+
+    """
+    try:
+        income = input("Please enter the income: ")
+        income = float(income.strip())
+    except ValueError:
+        print("Invalid Input. Kindly try again.")
+        return get_income_prompt()
+    return income
+
