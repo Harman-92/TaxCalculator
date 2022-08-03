@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from decimal import Decimal
 
 
 def get_year_prompt() -> str:
@@ -42,3 +43,36 @@ def get_income_prompt() -> float:
         return get_income_prompt()
     return income
 
+
+def calculate_tax(year: str, income: float) -> float:
+    """
+    Calculates tax for the given income and year.
+
+    Args:
+        year (str): year (e.g.2020-2021)
+        income (float): income (e.g.23456.45)
+
+    Returns:
+        float: tax (e.g.2345.00)
+
+    """
+    # Read the tax brackets from the excel file
+    taxes = pd.read_excel('tax_rates.xlsx', sheet_name=year)
+
+    # Find the tax bracket for the given income
+    tax_bracket = taxes[(taxes['Lower_Limit'] <= income) & (taxes['Upper_Limit'] >= income)].iloc[0]
+
+    # Calculate the tax for the given income
+    tax = tax_bracket['Fixed_Tax'] + (tax_bracket['Tax_Rate']/100.0) * (income - max(0, tax_bracket['Lower_Limit']-1))
+
+    # Round the tax to the nearest cent
+    tax = float(Decimal(tax).quantize(Decimal('0.01')))
+    return tax
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
