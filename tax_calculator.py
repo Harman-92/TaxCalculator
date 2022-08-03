@@ -71,7 +71,13 @@ def calculate_tax(year: str, income: float) -> float:
 
 
 def main():
-    pass
+    """
+    Main function.
+    """
+    year = get_year_prompt()
+    income = get_income_prompt()
+    tax = calculate_tax(year, income)
+    print(f"The estimated tax on your given income is: ${tax:,.2f}")
 
 
 if __name__ == "__main__":
